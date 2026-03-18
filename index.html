@@ -4,154 +4,207 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shiva Maniam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    * {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    :root {
+      --bg: #0a0a0a;
+      --surface: #111111;
+      --border: #1e1e1e;
+      --border-hover: #3a3a3a;
+      --text: #d4d4d4;
+      --text-muted: #555;
+      --text-faint: #333;
+      --accent: #4a8c6a;
+      --accent-bright: #5aad82;
+    }
+
+    html {
+      font-size: 16px;
+    }
+
     body {
-      background-color: #0f0f0f;
-      color: #e0e0e0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      min-height: 100vh;
+      padding: 5rem 1.5rem 4rem;
     }
 
-    .container {
-      text-align: center;
-      padding: 2rem;
+    .page {
+      width: 100%;
+      max-width: 560px;
     }
 
-    h1 {
-      font-size: 2.8rem;
+    /* ── Header ── */
+    header {
+      margin-bottom: 4rem;
+    }
+
+    .name {
+      font-size: 2.2rem;
       font-weight: 600;
       letter-spacing: -0.5px;
-      color: #ffffff;
-      margin-bottom: 0.5rem;
+      color: #f0f0f0;
+      margin-bottom: 0.35rem;
     }
 
-    .subtitle {
-      font-size: 1.1rem;
-      color: #888;
-      margin-bottom: 0.6rem;
-      letter-spacing: 0.5px;
+    .title {
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: var(--accent-bright);
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.3px;
     }
 
     .location {
       font-size: 0.82rem;
-      color: #555;
-      margin-bottom: 2.5rem;
+      color: var(--text-muted);
     }
 
-    .links {
+    /* ── Nav links ── */
+    .nav {
       display: flex;
-      gap: 1.5rem;
-      justify-content: center;
-      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin-top: 1.6rem;
     }
 
-    .links a {
-      color: #e0e0e0;
+    .nav a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--text-muted);
       text-decoration: none;
-      font-size: 0.95rem;
-      padding: 0.5rem 1.2rem;
-      border: 1px solid #333;
-      border-radius: 6px;
-      transition: border-color 0.2s, color 0.2s;
+      letter-spacing: 0.3px;
+      transition: color 0.2s;
+      position: relative;
     }
 
-    .links a:hover {
-      border-color: #888;
-      color: #ffffff;
-    }
-
-    .divider {
-      width: 40px;
+    .nav a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0;
       height: 1px;
-      background-color: #333;
-      margin: 3rem auto;
+      background: var(--accent-bright);
+      transition: width 0.2s;
     }
 
-    .portfolio {
-      text-align: left;
-      max-width: 480px;
+    .nav a:hover {
+      color: var(--accent-bright);
+    }
+
+    .nav a:hover::after {
       width: 100%;
     }
 
-    .portfolio h2 {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: #555;
-      margin-bottom: 1.2rem;
+    /* ── Sections ── */
+    section {
+      margin-bottom: 3rem;
     }
 
-    .project {
-      border: 1px solid #222;
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--text-faint);
+      margin-bottom: 1rem;
+    }
+
+    /* ── Cards ── */
+    .card {
+      display: block;
+      text-decoration: none;
+      background: var(--surface);
+      border: 1px solid var(--border);
       border-radius: 8px;
       padding: 1.1rem 1.3rem;
-      text-decoration: none;
-      display: block;
-      transition: border-color 0.2s;
+      transition: border-color 0.2s, transform 0.2s;
+      margin-bottom: 0.75rem;
     }
 
-    .project:hover {
-      border-color: #555;
+    .card:last-child {
+      margin-bottom: 0;
     }
 
-    .project-title {
-      font-size: 0.95rem;
+    .card:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .card-title {
+      font-size: 0.92rem;
+      font-weight: 500;
       color: #e0e0e0;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.25rem;
     }
 
-    .project-desc {
-      font-size: 0.82rem;
-      color: #666;
+    .card-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.5;
     }
 
+    /* ── Contact ── */
+    .contact-link {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-link:hover {
+      color: var(--accent-bright);
+    }
+
+    /* ── Footer ── */
     footer {
-      position: fixed;
-      bottom: 1.5rem;
-      font-size: 0.75rem;
-      color: #444;
+      margin-top: auto;
+      padding-top: 4rem;
+      font-size: 0.72rem;
+      color: var(--text-faint);
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Shiva Maniam</h1>
-    <p class="subtitle">📊 Data Scientist</p>
-    <p class="location">📍 Denver, CO</p>
-    <div class="links">
-      <a href="https://shivmaniam.substack.com/" target="_blank" rel="noopener">Blog</a>
-      <a href="https://www.linkedin.com/in/smaniam/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://github.com/shivmaniam/" target="_blank" rel="noopener">GitHub</a>
-    </div>
-    <div class="divider"></div>
+  <div class="page">
 
-    <div class="portfolio">
-      <h2>Contact</h2>
-      <a class="project" href="mailto:shiv.maniam@gmail.com">
-        <div class="project-title">shiv.maniam@gmail.com</div>
-        <div class="project-desc">Get in touch</div>
+    <header>
+      <h1 class="name">Shiva Maniam</h1>
+      <p class="title">📊 Data Scientist</p>
+      <p class="location">📍 Denver, CO</p>
+      <nav class="nav">
+        <a href="https://shivmaniam.substack.com/" target="_blank" rel="noopener">Blog</a>
+        <a href="https://www.linkedin.com/in/smaniam/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/shivmaniam/" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </header>
+
+    <section>
+      <p class="section-label">Portfolio</p>
+      <a class="card" href="https://similar-soccer-player-search.streamlit.app/" target="_blank" rel="noopener">
+        <div class="card-title">Similar Soccer Player Search</div>
+        <div class="card-desc">Find soccer players with similar stats and playing styles.</div>
       </a>
-    </div>
+    </section>
 
-    <div class="divider"></div>
+    <section>
+      <p class="section-label">Contact</p>
+      <a class="contact-link" href="mailto:shiv.maniam@gmail.com">shiv.maniam@gmail.com</a>
+    </section>
 
-    <div class="portfolio">
-      <h2>Portfolio</h2>
-      <a class="project" href="https://similar-soccer-player-search.streamlit.app/" target="_blank" rel="noopener">
-        <div class="project-title">Similar Soccer Player Search</div>
-        <div class="project-desc">Find soccer players with similar stats and playing styles.</div>
-      </a>
-    </div>
   </div>
 </body>
 </html>
