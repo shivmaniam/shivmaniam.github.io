@@ -64,6 +64,51 @@
       color: #ffffff;
     }
 
+    .divider {
+      width: 40px;
+      height: 1px;
+      background-color: #333;
+      margin: 3rem auto;
+    }
+
+    .portfolio {
+      text-align: left;
+      max-width: 480px;
+      width: 100%;
+    }
+
+    .portfolio h2 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #555;
+      margin-bottom: 1.2rem;
+    }
+
+    .project {
+      border: 1px solid #222;
+      border-radius: 8px;
+      padding: 1.1rem 1.3rem;
+      text-decoration: none;
+      display: block;
+      transition: border-color 0.2s;
+    }
+
+    .project:hover {
+      border-color: #555;
+    }
+
+    .project-title {
+      font-size: 0.95rem;
+      color: #e0e0e0;
+      margin-bottom: 0.3rem;
+    }
+
+    .project-desc {
+      font-size: 0.82rem;
+      color: #666;
+    }
+
     footer {
       position: fixed;
       bottom: 1.5rem;
@@ -80,6 +125,15 @@
       <a href="https://shivmaniam.substack.com/" target="_blank" rel="noopener">Substack</a>
       <a href="https://www.linkedin.com/in/smaniam/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://github.com/shivmaniam/" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="divider"></div>
+
+    <div class="portfolio">
+      <h2>Portfolio</h2>
+      <a class="project" href="https://similar-soccer-player-search.streamlit.app/" target="_blank" rel="noopener">
+        <div class="project-title">Similar Soccer Player Search</div>
+        <div class="project-desc">Find soccer players with similar stats and playing styles.</div>
+      </a>
     </div>
   </div>
 </body>
