@@ -76,37 +76,27 @@
     /* ── Nav links ── */
     .nav {
       display: flex;
-      gap: 1.2rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
       margin-top: 1.6rem;
     }
 
     .nav a {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 400;
       color: var(--text-muted);
       text-decoration: none;
       letter-spacing: 0.3px;
-      transition: color 0.2s;
-      position: relative;
-    }
-
-    .nav a::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -2px;
-      width: 0;
-      height: 1px;
-      background: var(--accent-bright);
-      transition: width 0.2s;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 0.3rem 0.85rem;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
     }
 
     .nav a:hover {
       color: var(--accent-bright);
-    }
-
-    .nav a:hover::after {
-      width: 100%;
+      border-color: var(--accent);
+      background: rgba(74, 140, 106, 0.06);
     }
 
     /* ── Sections ── */
@@ -157,18 +147,6 @@
       line-height: 1.5;
     }
 
-    /* ── Contact ── */
-    .contact-link {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .contact-link:hover {
-      color: var(--accent-bright);
-    }
-
     /* ── Footer ── */
     footer {
       margin-top: auto;
@@ -189,6 +167,7 @@
         <a href="https://shivmaniam.substack.com/" target="_blank" rel="noopener">Blog</a>
         <a href="https://www.linkedin.com/in/smaniam/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://github.com/shivmaniam/" target="_blank" rel="noopener">GitHub</a>
+        <a href="mailto:shiv.maniam@gmail.com">Email</a>
       </nav>
     </header>
 
@@ -198,11 +177,6 @@
         <div class="card-title">Similar Soccer Player Search</div>
         <div class="card-desc">Find soccer players with similar stats and playing styles.</div>
       </a>
-    </section>
-
-    <section>
-      <p class="section-label">Contact</p>
-      <a class="contact-link" href="mailto:shiv.maniam@gmail.com">shiv.maniam@gmail.com</a>
     </section>
 
   </div>
