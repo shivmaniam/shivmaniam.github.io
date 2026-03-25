@@ -49,7 +49,23 @@
 
     /* ── Header ── */
     header {
-      margin-bottom: 4rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .header-top {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--border);
+      flex-shrink: 0;
     }
 
     .name {
@@ -57,18 +73,24 @@
       font-weight: 600;
       letter-spacing: -0.5px;
       color: #f0f0f0;
-      margin-bottom: 0.35rem;
     }
 
     .title {
       font-size: 0.95rem;
       font-weight: 400;
       color: var(--accent-bright);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.3rem;
       letter-spacing: 0.3px;
     }
 
-    .location {
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .meta-item {
       font-size: 0.82rem;
       color: var(--text-muted);
     }
@@ -76,20 +98,17 @@
     .now {
       font-size: 0.82rem;
       color: var(--text-muted);
-      margin-top: 0.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
     }
 
-    .now::before {
-      content: '';
-      display: inline-block;
+    .now-dot {
       width: 6px;
       height: 6px;
       background: var(--accent-bright);
       border-radius: 50%;
-      margin-right: 0.45rem;
-      vertical-align: middle;
-      position: relative;
-      top: -1px;
+      flex-shrink: 0;
     }
 
     /* ── Nav links ── */
@@ -97,7 +116,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
-      margin-top: 1.6rem;
+      margin-top: 1.4rem;
     }
 
     .nav a {
@@ -120,7 +139,11 @@
 
     /* ── Sections ── */
     section {
-      margin-bottom: 3rem;
+      margin-bottom: 2.75rem;
+    }
+
+    section:last-child {
+      margin-bottom: 0;
     }
 
     .section-label {
@@ -129,22 +152,18 @@
       text-transform: uppercase;
       letter-spacing: 2px;
       color: var(--text-faint);
-      margin-bottom: 1rem;
-    }
-
-    /* ── Bio ── */
-    .bio {
-      margin-bottom: 3rem;
-    }
-
-    .bio p {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.75;
       margin-bottom: 0.9rem;
     }
 
-    .bio p:last-child {
+    /* ── Bio text ── */
+    .bio-text {
+      font-size: 0.88rem;
+      color: #777;
+      line-height: 1.8;
+      margin-bottom: 0.85rem;
+    }
+
+    .bio-text:last-child {
       margin-bottom: 0;
     }
 
@@ -195,10 +214,15 @@
   <div class="page">
 
     <header>
-      <h1 class="name">Shiva Maniam</h1>
+      <div class="header-top">
+        <img class="avatar" src="IMG_5015.jpeg" alt="Shiva Maniam" />
+        <h1 class="name">Shiva Maniam</h1>
+      </div>
       <p class="title">📊 Data Scientist</p>
-      <p class="location">📍 Denver, CO</p>
-      <p class="now">Now: Data Science Manager at Deloitte</p>
+      <div class="meta">
+        <span class="meta-item">📍 Denver, CO</span>
+      </div>
+      <p class="now"><span class="now-dot"></span>Data Science Manager at Deloitte</p>
       <nav class="nav">
         <a href="https://shivmaniam.substack.com/" target="_blank" rel="noopener">Blog</a>
         <a href="https://www.linkedin.com/in/smaniam/" target="_blank" rel="noopener">LinkedIn</a>
@@ -208,11 +232,11 @@
       </nav>
     </header>
 
-    <div class="bio">
+    <section>
       <p class="section-label">About</p>
-      <p>Applied data scientist with 8 years of experience architecting AI/ML solutions, leading high-performing teams, and delivering production systems that solve complex business problems. I specialize in fraud detection — designing end-to-end ML pipelines, guiding cross-functional Agile teams, and bridging technical rigor with business strategy to ship solutions that matter in high-stakes, mission-critical settings.</p>
-      <p>Outside of work, I'm into traveling, new technology, soccer, basketball, and the occasional deep dive into a good show or book. My wife and I have also recently taken up gardening and home maintenance — turns out it's just a series of YouTube tutorials and optimistic trips to Home Depot together.</p>
-    </div>
+      <p class="bio-text">Applied data scientist with 8 years of experience architecting AI/ML solutions, leading high-performing teams, and delivering production systems that solve complex business problems. I specialize in fraud detection — designing end-to-end ML pipelines, guiding cross-functional Agile teams, and bridging technical rigor with business strategy to ship solutions that matter in high-stakes, mission-critical settings.</p>
+      <p class="bio-text">Outside of work, I'm into traveling, new technology, soccer, basketball, and the occasional deep dive into a good show or book. My wife and I have also recently taken up gardening and home maintenance — turns out it's just a series of YouTube tutorials and optimistic trips to Home Depot together.</p>
+    </section>
 
     <section>
       <p class="section-label">Side Projects</p>
